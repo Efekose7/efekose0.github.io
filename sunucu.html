@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+		 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="icerik.html">İçerikler</a></li>
+          
+          <li><a href="sunucu.html">Sunucu</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="cursor" class="cursor">
+      <div class="ring">
+        <div><!--Border--></div>
+      </div>
+      <div class="ring">
+        <div><!--Pointer--></div>
+      </div>
+    </div>
+
+    <style>
+      body {
+          background-color: black;
+          overflow: hidden;
+      }
+      
+      canvas {
+          position: absolute;
+          top: 0;
+          left: 0;
+      }
+  </style>
+</head>
+<body>
+  <canvas id="rainfall"></canvas>
+
+  <script>
+      const canvas = document.getElementById('rainfall');
+      const ctx = canvas.getContext('2d');
+
+      // Set canvas size to match window size
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Create an array to store the raindrops
+      const raindrops = [];
+
+      // Function to create a new raindrop
+      function createRaindrop() {
+          const x = Math.random() * canvas.width;
+          const y = -5;
+          const speed = Math.random() * 5 + 2;
+          const length = Math.random() * 20 + 10;
+
+          raindrops.push({ x, y, speed, length });
+      }
+
+      // Function to update the raindrops' positions
+      function updateRaindrops() {
+          for (let i = 0; i < raindrops.length; i++) {
+              const raindrop = raindrops[i];
+
+              raindrop.y += raindrop.speed;
+
+              if (raindrop.y > canvas.height) {
+                  raindrops.splice(i, 1);
+                  i--;
+              }
+          }
+      }
+
+      // Function to draw the raindrops
+      function drawRaindrops() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          ctx.strokeStyle = 'white';
+          ctx.lineWidth = 2;
+
+          for (let i = 0; i < raindrops.length; i++) {
+              const raindrop = raindrops[i];
+
+              ctx.beginPath();
+              ctx.moveTo(raindrop.x, raindrop.y);
+              ctx.lineTo(raindrop.x, raindrop.y + raindrop.length);
+              ctx.stroke();
+          }
+      }
+
+      // Function to animate the raindrops
+      function animate() {
+          createRaindrop();
+          updateRaindrops();
+          drawRaindrops();
+
+          requestAnimationFrame(animate);
+      }
+
+      // Start the animation
+      animate();
+  </script>
+
+    
+
+    <style>
+      @property --k {
+syntax: "<number>";
+initial-value: 0;
+inherits: false;
+}
+html, body {
+display: grid;
+}
+
+html {
+height: 100%;
+}
+
+body {
+background: #000;
+}
+
+svg[height="0"] {
+position: absolute;
+}
+
+h1 {
+/* no pseudo needed */
+--k: 0;
+place-self: center;
+background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif;
+filter: url(#f);
+text-align: center;
+text-transform: uppercase;
+/* needs support for animating custom properties */
+/* Firefox not quite there yet, but it's coming */
+animation: k 4s linear infinite;
+}
+
+@keyframes k {
+to {
+  --k: 1 ;
+}
+}
+
+  </style>
+</head>
+<body>
+  
+<svg width="0" height="0">
+  <filter id="f" x="-50%" y="-200%" width="200%" height="500%">
+    <feGaussianBlur stdDeviation="35"></feGaussianBlur>
+    <feColorMatrix type="saturate" values="1.3"></feColorMatrix>
+    <feComposite in="SourceGraphic"></feComposite>
+  </filter>
+</svg>
+<h1>discord.gg/WorfeHack</h1>
+
+
+<style>
+      @property --k {
+syntax: "<number>";
+initial-value: 0;
+inherits: false;
+}
+html, body {
+display: grid;
+}
+
+html {
+height: 100%;
+}
+
+body {
+background: #000;
+}
+
+svg[height="0"] {
+position: absolute;
+}
+
+h1 {
+/* no pseudo needed */
+--k: 0;
+place-self: center;
+background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif;
+filter: url(#f);
+text-align: center;
+text-transform: uppercase;
+/* needs support for animating custom properties */
+/* Firefox not quite there yet, but it's coming */
+animation: k 4s linear infinite;
+}
+
+@keyframes k {
+to {
+  --k: 1 ;
+}
+}
+
+  </style>
+</head>
+<body>
+  
+<svg width="0" height="0">
+  <filter id="f" x="-50%" y="-200%" width="200%" height="500%">
+    <feGaussianBlur stdDeviation="35"></feGaussianBlur>
+    <feColorMatrix type="saturate" values="1.3"></feColorMatrix>
+    <feComposite in="SourceGraphic"></feComposite>
+  </filter>
+</svg>
+<h1>instagram: 2fe.kk</h1>
+
+
+
+  
+
+  
+
+
+
+
+
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+
+
+
+    
+		  
+		  
+    
+		
+    
+  </body>
+</html>
